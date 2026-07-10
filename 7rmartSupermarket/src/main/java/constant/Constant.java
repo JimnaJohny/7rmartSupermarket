@@ -1,0 +1,6 @@
+package constant;
+
+public class Constant {
+public static final String TESTDATA=System.getProperty("user.dir")+"\\src\\test\\resources\\testData.xlsx";
+public static final String IMAGE=System.getProperty("user.dir")+"\\src\\test\\resources\\Noodle.png";
+}
