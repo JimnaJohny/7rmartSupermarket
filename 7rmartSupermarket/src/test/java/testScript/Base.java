@@ -1,10 +1,16 @@
 package testScript;
 
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
+
+import utilities.ScreenshotUtility;
+
 import org.testng.annotations.Optional;
 
 public class Base {
@@ -23,9 +29,11 @@ public class Base {
 
 	}
 	//@AfterMethod
-	public void closeBrowser()
-	{
-		//driver.close();
+	public void browserQuit(ITestResult iTestResult) throws IOException {
+		if (iTestResult.getStatus() == ITestResult.FAILURE) {
+			ScreenshotUtility scrShot = new ScreenshotUtility(); // creating obj
+			scrShot.getScreenShot(driver, iTestResult.getName());
+		}
 		driver.quit();
 	}
 }
