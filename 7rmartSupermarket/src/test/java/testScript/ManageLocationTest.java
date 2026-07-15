@@ -10,7 +10,7 @@ import pages.ManageLocationPage;
 import utilities.ExcelUtility;
 
 public class ManageLocationTest extends Base{
-	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" })
+	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" },description="testcase is for managing location")
 	public void manageLocation() throws IOException {
 		String usernameValue = ExcelUtility.getStringData(1, 0, "loginpage");
 		// String usernameValue=ExcelUtility.getIntegerData(1, 0, "loginpage");//if

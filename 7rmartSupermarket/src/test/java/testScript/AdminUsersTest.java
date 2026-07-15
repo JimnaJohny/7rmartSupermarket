@@ -10,7 +10,7 @@ import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class AdminUsersTest extends Base {
-	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" })
+	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" },description="testcase is for adding admin users")
 	public void saveNewCredentials() throws IOException {
 		String usernameValue = ExcelUtility.getStringData(1, 0, "loginpage");
 		// String usernameValue=ExcelUtility.getIntegerData(1, 0, "loginpage");//if

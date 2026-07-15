@@ -10,7 +10,7 @@ import pages.ManageCODPage;
 import utilities.ExcelUtility;
 
 public class ManageCODTest extends Base{
-		@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" })
+		@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" },description="testcase is for managing COD")
 		public void manageCOD() throws IOException {
 			String usernameValue = ExcelUtility.getStringData(1, 0, "loginpage");
 			// String usernameValue=ExcelUtility.getIntegerData(1, 0, "loginpage");//if
