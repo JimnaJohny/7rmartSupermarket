@@ -27,17 +27,20 @@ public class ManageNewsPage {
 		WaitUtility obj=new WaitUtility();
 		obj.waitForElementToBeClickable(driver, moreInfoManageNews);
 		}
-	public void clickMoreInfoManageNews() {
+	/*public void clickMoreInfoManageNews() {
 		moreInfoManageNews.click();
-	}
-	public void clickNewButton() {
+	}*/
+	public ManageNewsPage clickNewButton() {
 		newButton.click();
+		return this;
 	}
-	public void enterNews(String news) {
+	public ManageNewsPage enterNews(String news) {
 		newsArea.sendKeys(news);
+		return this;
 	}
-	public void clickSave() {
+	public ManageNewsPage clickSave() {
 		saveButton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();

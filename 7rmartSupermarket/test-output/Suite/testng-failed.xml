@@ -6,12 +6,20 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
-      <class name="testScript.ManageNewsTest">
+      <class name="testScript.LoginTest">
         <methods>
-          <include name="enterNews"/>
+          <include name="browserQuit"/>
+          <include name="verfyUserIsAbleToLoginWithInvalidCredentials"/>
           <include name="initializeBrowser"/>
         </methods>
-      </class> <!-- testScript.ManageNewsTest -->
+      </class> <!-- testScript.LoginTest -->
+      <class name="testScript.ManageLocationTest">
+        <methods>
+          <include name="browserQuit"/>
+          <include name="initializeBrowser"/>
+          <include name="manageLocation"/>
+        </methods>
+      </class> <!-- testScript.ManageLocationTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

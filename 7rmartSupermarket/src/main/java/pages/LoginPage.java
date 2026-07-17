@@ -18,16 +18,19 @@ public LoginPage(WebDriver driver) {
 this.driver=driver;	
 PageFactory.initElements(driver, this);
 }
-public void enterUsername(String usernameValue) {
-	username.sendKeys(usernameValue);	
+public LoginPage enterUsername(String usernameValue) {
+	username.sendKeys(usernameValue);
+	return this;	
 }
-public void enterPassword(String passwordValue) {
+public LoginPage enterPassword(String passwordValue) {
 	password.sendKeys(passwordValue);
+	return this;
 }
-public void signIn() {
+public HomePage signIn() {
 	/*WaitUtility obj=new WaitUtility();
 	obj.waitForElementToBeClickable(driver, signIn);*/
 	signIn.click();
+	return new HomePage(driver);
 }
 public boolean isDashboardDisplayed() {
 	return dashboard.isDisplayed();

@@ -23,22 +23,26 @@ public class ManageCategoryPage {
 		this.driver=driver;	
 		PageFactory.initElements(driver, this);
 		}
-	public void clickMoreInfoManageCategory() {
+	/*public void clickMoreInfoManageCategory() {
 		moreInfoManageCategory.click();
-	}
-	public void clickNewButton() {
+	}*/
+	public ManageCategoryPage clickNewButton() {
 		newButton.click();
+		return this;
 	}
-	public void enterCategory(String categoryName) {
+	public ManageCategoryPage enterCategory(String categoryName) {
 		category.sendKeys(categoryName);
+		return this;
 	}
-	public void selectGroups() {
+	public ManageCategoryPage selectGroups() {
 		selectGroups.click();
+		return this;
 	}
-	public void fileUpload() {
+	public ManageCategoryPage fileUpload() {
 		//Constant obj1=new Constant();
 		FileUploadUtility obj=new FileUploadUtility();
 		obj.fileUploadUsingSendKeys(chooseFileButton,Constant.IMAGE);
+		return this;
 	}
 	public void scroll() {
 		PageUtility obj=new PageUtility();
@@ -49,8 +53,9 @@ public class ManageCategoryPage {
 	WaitUtility obj=new WaitUtility();
 	obj.waitForElementToBeClickable(driver, saveButton);
 	}
-	public void clickSave() {
+	public ManageCategoryPage clickSave() {
 		saveButton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();

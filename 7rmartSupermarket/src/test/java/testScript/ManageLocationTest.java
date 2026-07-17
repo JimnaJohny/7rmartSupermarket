@@ -5,11 +5,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageLocationPage;
 import utilities.ExcelUtility;
 
 public class ManageLocationTest extends Base{
+	HomePage homepage;
+	ManageLocationPage managelocationpage;
 	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" },description="testcase is for managing location")
 	public void manageLocation() throws IOException {
 		String usernameValue = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -17,14 +20,14 @@ public class ManageLocationTest extends Base{
 		// giving integer as credential
 		String passwordValue = ExcelUtility.getStringData(1, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsername(usernameValue);
-		loginpage.enterPassword(passwordValue);
-		loginpage.signIn();
-		ManageLocationPage managelocationpage=new ManageLocationPage(driver);
-		managelocationpage.clickMoreInfoManageLocation();
-		managelocationpage.clickNewButton();
-		managelocationpage.country();
-		managelocationpage.selectState();
+		loginpage.enterUsername(usernameValue).enterPassword(passwordValue);
+		//loginpage.enterPassword(passwordValue);
+		homepage=loginpage.signIn();
+		//ManageLocationPage managelocationpage=new ManageLocationPage(driver);
+		managelocationpage= homepage.clickMoreInfoManageLocation();
+		managelocationpage.clickNewButton().country().selectState().clickSave();
+		/*managelocationpage.country();
+		managelocationpage.selectState();*/
 		//String country = ExcelUtility.getStringData(1, 0, "managelocation");
 		/*String state = ExcelUtility.getStringData(1, 1, "managelocation");*/
 		//String location = ExcelUtility.getStringData(1, 2, "managelocation");
@@ -32,7 +35,7 @@ public class ManageLocationTest extends Base{
 		//managelocationpage.selectCountry(country);
 		//managelocationpage.location(location);
 		//managelocationpage.delivery(String.valueOf(deliveryCharge));
-		managelocationpage.clickSave();
+		//managelocationpage.clickSave();
 		boolean alert=managelocationpage.isAlertDisplayed();
 		Assert.assertTrue(alert);
 	}

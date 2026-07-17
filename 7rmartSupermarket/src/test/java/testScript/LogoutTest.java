@@ -3,11 +3,11 @@ package testScript;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pages.LogoutPage;
+import pages.HomePage;
 import pages.LoginPage;
 
 public class LogoutTest extends Base {
-	@Test
+	@Test(retryAnalyzer = retry.Retry.class,groups= {"Regression"})
 	public void verifyUserCanLogOutSuccessfullyFromDashBoard() {
 		String usernameValue = "admin";
 		String passwordValue = "admin";
@@ -15,7 +15,7 @@ public class LogoutTest extends Base {
 		loginpage.enterUsername(usernameValue);
 		loginpage.enterPassword(passwordValue);
 		loginpage.signIn();
-		LogoutPage logoutpage = new LogoutPage(driver);
+		HomePage logoutpage = new HomePage(driver);
 		logoutpage.clickAdminButton();
 		logoutpage.clickLogOutButton();
 		boolean loginPage=logoutpage.isLoginDisplayed();

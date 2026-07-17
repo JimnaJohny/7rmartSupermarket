@@ -6,14 +6,16 @@
 	</listeners>
   <test thread-count="5" name="Test">
     <classes>
-      <!--<class name="testScript.ManageCategoryTest"/>
+      <class name="testScript.ManageCategoryTest"/>
      <class name="testScript.ManageNewsTest"/>
       <class name="testScript.LogoutTest"/>
       <class name="testScript.LoginTest"/>
       <class name="testScript.AdminUsersTest"/>
       <class name="testScript.ManageCODTest"/>
-      <class name="testScript.ManageLocationTest"/> -->
-    <class name="testScript.ManageNewsTest"/>
+      <class name="testScript.ManageLocationTest"/> 
+    <!--<class name="testScript.ManageNewsTest"/>
+    <class name="testScript.ManageCategoryTest"/>
+    <class name="testScript.LoginTest"/>-->
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

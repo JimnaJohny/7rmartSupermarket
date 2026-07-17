@@ -15,17 +15,19 @@ public class ManageCODPage {
 		this.driver=driver;	
 		PageFactory.initElements(driver, this);
 		}
-	public void clickMoreInfoManageCOD() {
+	/*public void clickMoreInfoManageCOD() {
 		moreInfoManageCOD.click();
-	}
-	public void clickCODRadioButton() {
+	}*/
+	public ManageCODPage clickCODRadioButton() {
 	if(radioButtonCOD.isSelected())	
 		System.out.println("Yes is already selected");
 	else
 		radioButtonCOD.click();
+	return this;
 	}
-	public void clickSave() {
+	public ManageCODPage clickSave() {
 		saveButton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();

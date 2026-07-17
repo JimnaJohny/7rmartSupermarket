@@ -6,10 +6,13 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import pages.AdminUsersPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class AdminUsersTest extends Base {
+	HomePage homepage;
+	AdminUsersPage adminuserspage;
 	@Test(retryAnalyzer = retry.Retry.class, groups = { "Regression" },description="testcase is for adding admin users")
 	public void saveNewCredentials() throws IOException {
 		String usernameValue = ExcelUtility.getStringData(1, 0, "loginpage");
@@ -17,21 +20,21 @@ public class AdminUsersTest extends Base {
 		// giving integer as credential
 		String passwordValue = ExcelUtility.getStringData(1, 1, "loginpage");
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsername(usernameValue);
-		loginpage.enterPassword(passwordValue);
-		loginpage.signIn();
-		AdminUsersPage adminuserspage = new AdminUsersPage(driver);
+		loginpage.enterUsername(usernameValue).enterPassword(passwordValue);
+		//loginpage.enterPassword(passwordValue);
+		homepage= loginpage.signIn();
+		//AdminUsersPage adminuserspage = new AdminUsersPage(driver);
 		/*
 		 * String userNameValue="jimna"; String passWordValue="123456";
 		 */
 		String newUsernameValue = ExcelUtility.getStringData(1, 0, "adminusers");
 		String newPasswordValue = ExcelUtility.getStringData(1, 0, "adminusers");
-		adminuserspage.clickMoreInfoAdminUsers();
-		adminuserspage.clickNewButton();
-		adminuserspage.enterUserName(newUsernameValue);
+		adminuserspage= homepage.clickMoreInfoAdminUsers();
+		adminuserspage.clickNewButton().enterUserName(newUsernameValue).enetrPassword(newPasswordValue).selectUserType().clickSave();
+		/*adminuserspage.enterUserName(newUsernameValue);
 		adminuserspage.enetrPassword(newPasswordValue);
 		adminuserspage.selectUserType();
-		adminuserspage.clickSave();
+		adminuserspage.clickSave();*/
 		boolean alert=adminuserspage.isAlertDisplayed();
 		Assert.assertTrue(alert);
 	}

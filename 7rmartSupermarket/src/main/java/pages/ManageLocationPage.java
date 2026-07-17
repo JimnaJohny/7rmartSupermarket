@@ -22,11 +22,12 @@ public class ManageLocationPage {
 		this.driver=driver;	
 		PageFactory.initElements(driver, this);
 		}
-	public void clickMoreInfoManageLocation() {
+	/*public void clickMoreInfoManageLocation() {
 		moreInfoManageLocation.click();
-	}
-	public void clickNewButton() {
+	}*/
+	public ManageLocationPage clickNewButton() {
 		newButton.click();
+		return this;
 	}
 	/*public void fillForm(String countryName,String stateName, String locationName,String deliveryCharge) {
 		PageUtility obj=new PageUtility();
@@ -35,18 +36,20 @@ public class ManageLocationPage {
 		location.sendKeys(locationName);
 		delivery.sendKeys(deliveryCharge);	
 	}*/
-	public void country() {
+	public ManageLocationPage country() {
 		PageUtility obj=new PageUtility();
 		obj.dropDownVisibleText(country, "Select");
 		obj.dropDownVisibleText(country, "United Kingdom");
+		return this;
 	}
-	public void selectState() {
-		/*WaitUtility obj1 = new WaitUtility();
+	public ManageLocationPage selectState() {
+		WaitUtility obj1 = new WaitUtility();
 	    obj1.waitForVisibilityOf(driver, state);
 	    PageUtility obj=new PageUtility();
-		obj.dropDownVisibleText(state, "Argyll");*/
+		obj.dropDownVisibleText(state, "Argyll");
 		location.sendKeys("Regal Drive");
 		delivery.sendKeys("20");
+		return this;
 	}
 	/*public void selectCountry(String countryName) {
 		WaitUtility obj1 = new WaitUtility();
@@ -64,8 +67,9 @@ public class ManageLocationPage {
 	    obj.waitForVisibilityOf(driver, delivery);
 		delivery.sendKeys(deliveryCharge);
 	}*/
-	public void clickSave() {
+	public ManageLocationPage clickSave() {
 		saveButton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();

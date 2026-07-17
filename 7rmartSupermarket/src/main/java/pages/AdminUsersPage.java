@@ -27,31 +27,36 @@ public class AdminUsersPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickMoreInfoAdminUsers() {
+	/*public void clickMoreInfoAdminUsers() {
 		moreInfoAdminUsers.click();
-	}
+	}*/
 
-	public void clickNewButton() {
+	public AdminUsersPage clickNewButton() {
 		newButton.click();
+		return this;
 	}
 
-	public void enterUserName(String usernameValue) {
+	public AdminUsersPage enterUserName(String usernameValue) {
 		userName.clear();
 		userName.sendKeys(usernameValue);
+		return this;
 	}
 
-	public void enetrPassword(String passwordValue) {
+	public AdminUsersPage enetrPassword(String passwordValue) {
 		password.clear();
 		password.sendKeys(passwordValue);
+		return this;
 	}
 
-	public void selectUserType() {
+	public AdminUsersPage selectUserType() {
 		Select obj = new Select(userType);
 		obj.selectByVisibleText("Partner");
+		return this;
 	}
 
-	public void clickSave() {
+	public AdminUsersPage clickSave() {
 		saveButton.click();
+		return this;
 	}
 	public boolean isAlertDisplayed() {
 		return alert.isDisplayed();
