@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
@@ -23,7 +24,7 @@ public void verfyUserIsAbleToLoginWithValidCredentials() throws IOException {
 	//loginpage.enterPassword(passwordValue);
 	homepage=loginpage.signIn();
 	boolean homePage=loginpage.isDashboardDisplayed();
-	Assert.assertTrue(homePage);
+	Assert.assertTrue(homePage,Constant.LOGINVALIDCREDENTIAL);
 }
 
 @Test
@@ -37,7 +38,7 @@ public void verfyUserIsAbleToLoginWithInvalidPassword() throws IOException {
 	//loginpage.enterPassword(passwordValue);
 	homepage=loginpage.signIn();
 	boolean alert=loginpage.isAlertDisplayed();
-	Assert.assertTrue(alert);
+	Assert.assertTrue(alert,"Homepage is loaded with invalid password");
 }
 @Test
 public void verfyUserIsAbleToLoginWithInvalidUsername() throws IOException {

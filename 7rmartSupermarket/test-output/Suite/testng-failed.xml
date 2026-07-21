@@ -6,6 +6,20 @@
   </listeners>
   <test thread-count="5" name="Test(failed)">
     <classes>
+      <class name="testScript.ManageNewsTest">
+        <methods>
+          <include name="browserQuit"/>
+          <include name="enterNews"/>
+          <include name="initializeBrowser"/>
+        </methods>
+      </class> <!-- testScript.ManageNewsTest -->
+      <class name="testScript.ManageCategoryTest">
+        <methods>
+          <include name="browserQuit"/>
+          <include name="manageCategory"/>
+          <include name="initializeBrowser"/>
+        </methods>
+      </class> <!-- testScript.ManageCategoryTest -->
       <class name="testScript.LoginTest">
         <methods>
           <include name="browserQuit"/>
