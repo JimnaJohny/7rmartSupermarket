@@ -55,12 +55,14 @@ public class HomePage {
 		return new AdminUsersPage(driver);
 	}
 
-	public void clickAdminButton() {
+	public HomePage clickAdminButton() {
 		adminButton.click();
+		return this;
 	}
 
-	public void clickLogOutButton() {
+	public LoginPage clickLogOutButton() {
 		logOutButton.click();
+		return new LoginPage(driver);
 	}
 
 	public boolean isLoginDisplayed() {

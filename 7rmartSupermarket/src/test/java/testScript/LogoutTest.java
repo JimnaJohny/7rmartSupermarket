@@ -1,7 +1,5 @@
 package testScript;
 
-import java.lang.invoke.ConstantBootstraps;
-
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -15,12 +13,12 @@ public class LogoutTest extends Base {
 		String usernameValue = "admin";
 		String passwordValue = "admin";
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterUsername(usernameValue);
-		loginpage.enterPassword(passwordValue);
-		loginpage.signIn();
+		loginpage.enterUsername(usernameValue).enterPassword(passwordValue).signIn();
+		/*loginpage.enterPassword(passwordValue);
+		loginpage.signIn();*/
 		HomePage logoutpage = new HomePage(driver);
-		logoutpage.clickAdminButton();
-		logoutpage.clickLogOutButton();
+		logoutpage.clickAdminButton().clickLogOutButton();
+		//logoutpage.clickLogOutButton();
 		boolean loginPage=logoutpage.isLoginDisplayed();
 		Assert.assertTrue(loginPage, Constant.LOGOUT);
 	}
