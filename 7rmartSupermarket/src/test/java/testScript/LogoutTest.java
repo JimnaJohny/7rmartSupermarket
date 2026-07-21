@@ -18,7 +18,8 @@ public class LogoutTest extends Base {
 		homepage=loginpage.signIn();
 		/*loginpage.enterPassword(passwordValue);
 		loginpage.signIn();*/
-		loginpage=homepage.clickAdminButton().clickLogOutButton();
+		homepage.clickAdminButton();
+		loginpage=homepage.clickLogOutButton();
 		//logoutpage.clickLogOutButton();
 		boolean loginPage=homepage.isLoginDisplayed();
 		Assert.assertTrue(loginPage, Constant.LOGOUT);
