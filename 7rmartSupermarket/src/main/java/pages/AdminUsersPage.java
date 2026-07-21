@@ -6,6 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import utilities.PageUtility;
+
 public class AdminUsersPage {
 	public WebDriver driver;
 	@FindBy(xpath = "(//a[@class='small-box-footer'])[2]")
@@ -49,8 +51,10 @@ public class AdminUsersPage {
 	}
 
 	public AdminUsersPage selectUserType() {
-		Select obj = new Select(userType);
-		obj.selectByVisibleText("Partner");
+		PageUtility obj=new PageUtility();
+		obj.dropDownVisibleText(userType, "Partner");
+		/*Select obj = new Select(userType);
+		obj.selectByVisibleText("Partner");*/
 		return this;
 	}
 

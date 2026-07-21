@@ -38,7 +38,7 @@ public void verfyUserIsAbleToLoginWithInvalidPassword() throws IOException {
 	//loginpage.enterPassword(passwordValue);
 	homepage=loginpage.signIn();
 	boolean alert=loginpage.isAlertDisplayed();
-	Assert.assertTrue(alert,"Homepage is loaded with invalid password");
+	Assert.assertTrue(alert,Constant.LOGININVALIDPASSWORD);
 }
 @Test
 public void verfyUserIsAbleToLoginWithInvalidUsername() throws IOException {
@@ -51,7 +51,7 @@ public void verfyUserIsAbleToLoginWithInvalidUsername() throws IOException {
 	//loginpage.enterPassword(passwordValue);
 	homepage=loginpage.signIn();
 	boolean alert=loginpage.isAlertDisplayed();
-	Assert.assertTrue(alert);
+	Assert.assertTrue(alert,Constant.LOGININVALIDUSERNAME);
 }
 @Test
 public void verfyUserIsAbleToLoginWithInvalidCredentials() throws IOException {
@@ -64,6 +64,6 @@ public void verfyUserIsAbleToLoginWithInvalidCredentials() throws IOException {
 	//loginpage.enterPassword(passwordValue);
 	homepage=loginpage.signIn();
 	boolean alert=loginpage.isAlertDisplayed();//false bcz added these credentials as a new admin in AdminUser class11	
-	Assert.assertTrue(alert);
+	Assert.assertTrue(alert,Constant.LOGININVALIDCREDENTIALS);
 }
 }

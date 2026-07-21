@@ -1,8 +1,11 @@
 package testScript;
 
+import java.lang.invoke.ConstantBootstraps;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -19,6 +22,6 @@ public class LogoutTest extends Base {
 		logoutpage.clickAdminButton();
 		logoutpage.clickLogOutButton();
 		boolean loginPage=logoutpage.isLoginDisplayed();
-		Assert.assertTrue(loginPage);
+		Assert.assertTrue(loginPage, Constant.LOGOUT);
 	}
 }

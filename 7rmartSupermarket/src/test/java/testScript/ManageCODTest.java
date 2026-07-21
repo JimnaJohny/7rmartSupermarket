@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import constant.Constant;
 import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageCODPage;
@@ -28,6 +29,6 @@ public class ManageCODTest extends Base{
 			managecodpage.clickCODRadioButton().clickSave();
 			/*managecodpage.clickSave();*/
 			boolean alert=managecodpage.isAlertDisplayed();
-			Assert.assertTrue(alert);
+			Assert.assertTrue(alert, Constant.CODOPTION);
 		}
 }
